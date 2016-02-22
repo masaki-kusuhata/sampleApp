@@ -1,5 +1,5 @@
 <h1>TEST</h1>
-<h2>INDEXEDDB検証</h2>
+<h2>INDEXEDDB検証(localForage)</h2>
 <div class="">
   <input type="text" name="test" ng-model="$ctrl.input" value="">
   <button type="button" class="btn btn-default" ng-click="$ctrl.save()">保存</button>
@@ -7,4 +7,15 @@
 <div>
   <input type="text" name="test" ng-model="$ctrl.text" value="">
   <button type="button" class="btn btn-default" ng-click="$ctrl.get()">取得</button>
+</div>
+
+<h2>INDEXEDDB検証(dexie.js)</h2>
+<div class="">
+  <input type="text" name="test" ng-model="$ctrl.input2" value="">
+  <button type="button" class="btn btn-default" ng-click="$ctrl.save2()">保存</button>
+  {{$ctrl.status}}
+</div>
+<div>
+  <input type="text" name="test" ng-model="$ctrl.text2" value="">
+  <button type="button" class="btn btn-default" ng-click="$ctrl.get2()">取得</button>
 </div>
