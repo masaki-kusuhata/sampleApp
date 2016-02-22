@@ -14,7 +14,8 @@
           'components/{,*/}*.html',
           'directives/{,*/}*.html',
           '{,*/}*.html',
-          'styles/fonts/{,*/}*.*'
+          'styles/fonts/{,*/}*.*',
+          'sampleApp.appcache'
         ]
       }]
     },
