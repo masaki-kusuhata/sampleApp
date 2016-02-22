@@ -21,6 +21,8 @@ module.exports = function(config) {
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/localforage/dist/localforage.js',
       'bower_components/angular-localforage/dist/angular-localForage.js',
+      'bower_components/dexie/dist/latest/Dexie.min.js',
+      'bower_components/NgDexie/build/ngDexie.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       // injector:js

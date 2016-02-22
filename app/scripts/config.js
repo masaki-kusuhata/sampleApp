@@ -4,11 +4,13 @@
 
   angular
     .module('sampleApp.config', [
-      'LocalForageModule'
+      'LocalForageModule',
+      'ngdexie',
+      'ngdexie.ui'
     ])
     .config(AppConfig);
 
-  function AppConfig($locationProvider, $localForageProvider) {
+  function AppConfig($locationProvider, $localForageProvider, ngDexieProvider) {
     /*
       # Hashbang Mode
       http://www.example.com/#/aaa/
@@ -25,10 +27,19 @@
       description : 'some descriptio'
     });
 
+    ngDexieProvider.setOptions({name: 'databaseName', debug: false});
+    ngDexieProvider.setConfiguration(function (db) {
+      db.version(1).stores({
+          notes: "++id,title",
+      });
+      db.on('error', function (err) {
+      });
+    });
   }
 
   AppConfig.$inject = [
     '$locationProvider',
-    '$localForageProvider'
+    '$localForageProvider',
+    'ngDexieProvider'
   ];
 })();

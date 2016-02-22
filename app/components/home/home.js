@@ -8,7 +8,8 @@
 
   angular
     .module('sampleApp.components.home', [
-      'LocalForageModule'
+      'LocalForageModule',
+      'ngdexie'
     ])
     .component('home', {
       controller: Controller,
@@ -17,7 +18,8 @@
     });
 
   Controller.$inject = [
-    '$localForage'
+    '$localForage',
+    'ngDexie'
   ];
 
   var ctrl;
@@ -28,11 +30,12 @@
    * @class Controller
    * @constructor
    */
-  function Controller($localForage) {
+  function Controller($localForage, ngDexie) {
     console.log('Home Controller Constructor');
     ctrl = this;
     ctrl.name = 'Home';
     ctrl.$localForage = $localForage;
+    ctrl.ngDexie = ngDexie;
   }
 
   function $canActivate() {
@@ -51,8 +54,27 @@
 
   Controller.prototype.get = function() {
     ctrl.$localForage.getItem('sample').then(function(res) {
-      console.log(res);
       ctrl.text = res;
+    });
+  };
+
+  Controller.prototype.save2 = function() {
+    var note = {
+      id:1,
+      title: ctrl.input2,
+      action: 'create more documentation'
+    };
+
+    ctrl.ngDexie.put('notes', note).then(function(){
+      ctrl.status = 'success';
+    }).catch(function(ex) {
+      ctrl.status = 'error'
+    });
+  };
+
+  Controller.prototype.get2 = function() {
+    ctrl.ngDexie.list('notes').then(function(data){
+      ctrl.text2 = angular.toJson(data);
     });
   };
 })();
