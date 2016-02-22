@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# rev 2 - 2016-02-22T11:21:05.796Z
+# rev 2 - 2016-02-22T11:22:08.734Z
 
 CACHE:
 components/about/about.html
@@ -9,7 +9,7 @@ components/header/header.html
 components/home/home.html
 scripts/main.b514ecb4.js
 scripts/plugins.f5615a6d.js
-scripts/vendor.6cd48517.js
+scripts/vendor.0e4b73b1.js
 styles/main.9e731784.css
 styles/vendor.c6031eb1.css
 favicon.b25e58c4.ico
